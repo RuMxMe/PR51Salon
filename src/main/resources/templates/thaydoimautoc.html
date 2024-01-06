@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style-cattoc.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <title>Thay Đổi Màu Tóc</title>
+</head>
+<body>
+<header th:include="/fragment/header :: header"></header>
+<h1 class="title-service">Thay đổi màu tóc</h1>
+<span class="title-service2">Màu tóc giúp định hình phong cách và thay đổi diện mạo một cách đột phá mà bất cứ ai cũng nên thử.</span>
+<div class="flex-container">
+    <a href="link1.html" class="item">
+        <img src="/image/home/nhuom-tieu-chuan-1.jpg" alt="Image 1">
+        <h6>Nhuộm Tiêu Chuẩn</h6>
+    </a>
+    <a href="link2.html" class="item">
+        <img src="/image/home/nhuom-cao-cap-5.jpg" alt="Image 2">
+        <h6>Nhuộm Cao Cấp</h6>
+    </a>
+</div>
+<div class="register">
+    <button type="button" class="btn btn-primary">Đặt Lịch Ngay</button>
+</div>
+
+<footer th:include="/fragment/footer :: footer"></footer>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+</html>

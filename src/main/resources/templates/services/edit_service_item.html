@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Service Item</title>
+</head>
+<body>
+<h2>Edit Service Item</h2>
+
+<form th:action="@{/serviceItems/{id}(id=${serviceItem.id})}" th:object="${serviceItem}" method="post">
+    <label>Name:</label>
+    <input type="text" th:field="*{serviceName}" required/>
+
+    <label>Image:</label>
+    <input type="text" th:field="*{serviceImage}" required/>
+
+    <button type="submit">Save Changes</button>
+</form>
+
+<br>
+<a th:href="@{/serviceItems}">Back to Service Items</a>
+</body>
+</html>

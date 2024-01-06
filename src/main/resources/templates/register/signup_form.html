@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Đăng kí tài khoản - PR51 Salon</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<header th:include="/fragment/header :: header"></header>
+<div class="container text-center">
+    <div>
+        <h1>Trở thành thành viên PR51</h1>
+    </div>
+    <div>
+        <button class="btn btn-primary"><a style="text-decoration: none; color: #cccccc" href="/login-form">Đăng
+            nhập</a></button>
+    </div>
+    <form th:action="@{/process_register}" th:object="${user}"
+          method="post" style="max-width: 600px; margin: 0 auto;">
+        <div class="m-3">
+            <div class="form-group row">
+
+                <label class="col-4 col-form-label">Họ: </label>
+                <div class="col-8">
+                    <label>
+                        <input type="text" th:field="*{firstName}" class="form-control"
+                               required minlength="2" maxlength="20"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Tên: </label>
+                <div class="col-8">
+                    <label>
+                        <input type="text" th:field="*{lastName}" class="form-control"
+                               required minlength="2" maxlength="20"/>
+                    </label>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Email: </label>
+                <div class="col-8">
+                    <label>
+                        <input type="email" th:field="*{email}" class="form-control" required/>
+                    </label>
+                    <p th:if="${emailError}" class="text-danger" th:text="${emailError}"></p>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Số điện thoại: </label>
+                <div class="col-8">
+                    <label>
+                        <input type="tel" th:field="*{phoneNumber}" class="form-control" required/>
+                    </label>
+                    <p th:if="${phoneError}" class="text-danger" th:text="${phoneError}"></p>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-4 col-form-label">Mật khẩu: </label>
+                <div class="col-8">
+                    <label>
+                        <input type="password" th:field="*{password}" class="form-control"
+                               required minlength="6" maxlength="10"/>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button type="submit" class="btn btn-primary">Đăng kí</button>
+        </div>
+    </form>
+</div>
+<footer th:include="/fragment/footer :: footer"></footer>
+</body>
+</html>

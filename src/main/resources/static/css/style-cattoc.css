@@ -1,0 +1,89 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #f2f2f2;
+    padding: 20px;
+    text-align: center;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #333;
+}
+
+
+.flex-container {
+    display: flex;
+    max-width: 100%; 
+    justify-content: center;
+    padding: 100px 0;
+}
+
+.item {
+    flex: 1;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-decoration: none;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 250px;
+    width: 100%; /* Chỉnh chiều rộng các mục */
+    max-width: 300px; /* Giới hạn chiều rộng tối đa của mỗi mục */
+    margin: 0 5px; /* Khoảng cách giữa các mục */
+}
+
+.item img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border-radius: 15px;
+}
+
+.item p {
+    margin: 0;
+}
+
+
+
+.title-service{
+    padding-top: 50px;
+    display: flex;
+    justify-content: center;
+}
+.title-service2{
+    display: flex;
+    justify-content: center;
+}
+
+.register{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 150px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: absolute;
+    width: 100%;
+}

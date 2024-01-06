@@ -1,0 +1,57 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:fragment="header">
+    <head>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+
+            header {
+                background-color: #f2f2f2;
+                padding: 20px;
+                text-align: center;
+            }
+
+            nav ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            nav ul li {
+                display: inline;
+                text-decoration: none;
+                margin-right: 20px;
+            }
+
+            nav ul li a {
+                text-decoration: none;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+    <div>
+        <h1>Welcome to PR51 Hair Salon</h1>
+    </div>
+    <div>
+        <nav>
+            <ul>
+                <li><a href="/home">Trang chủ</a></li>
+                <li><a href='#service'>Dịch Vụ</a></li>
+                <li><a href="#contact">Liên Hệ</a></li>
+                <div th:if="${user == null}">
+                    <li><a href="/register">Đăng Kí</a></li>
+                    <li><a href="/login-form">Đăng Nhập</a></li>
+                </div>
+                    <li>
+                        <div th:if="${user != null}">
+                        <a th:if="${user.lastName != null}" href="/profile" th:text="${user.firstName + ' ' + user.lastName}"></a>
+                        </div>
+                    </li>
+            </ul>
+        </nav>
+      </body>
+  </div>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang cá nhân</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .profile-container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .profile-details {
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .profile-label {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<header th:include="/fragment/header :: header"></header>
+<div class="container profile-container">
+    <div class="profile-header">
+        <img th:if="${user.avatarPath != null}" th:src="@{'/' + ${user.avatarPath}}" alt="Avatar"
+             class="profile-avatar"/>
+
+        <img th:unless="${user.avatarPath != null}" th:src="@{'image/user_avt/avt-none.jpg'}" alt="Default Avatar"
+             class="profile-avatar"/>
+
+        <!--        <div th:if="${errors}" class="alert alert-danger">-->
+        <!--            <p th:text="${errors}"></p>-->
+        <!--        </div>-->
+
+        <div th:if="${param.success}" class="alert alert-success">
+            <p>Avatar uploaded successfully!</p>
+        </div>
+
+
+        <h2 th:text="${user.firstName + ' ' + user.lastName}"></h2>
+    </div>
+
+    <form th:action="@{/profile/upload-avatar}" method="post" enctype="multipart/form-data">
+        <input type="file" name="avatar" accept="image/png, image/gif, image/jpeg"/>
+        <button type="submit">Upload Avatar</button>
+    </form>
+    <div style="margin: auto; text-align: center">
+        <form th:action="@{/logout}" method="post">
+            <p>
+                Welcome <b>[[${#request.userPrincipal.principal.fullName}]]</b>
+            </p>
+            <input type="submit" value="Sign Out"/>
+        </form>
+    </div>
+    <div class="profile-details">
+        <p><span class="profile-label">Họ:</span> <span th:text="${user.firstName}"></span></p>
+        <p><span class="profile-label">Tên:</span> <span th:text="${user.lastName}"></span></p>
+        <p><span class="profile-label">Số điện thoại:</span> <span th:text="${user.phoneNumber}"></span></p>
+        <p><span class="profile-label">Email:</span> <span th:text="${user.email}"></span></p>
+    </div>
+</div>
+<footer th:include="/fragment/footer"></footer>
+</body>
+</html>

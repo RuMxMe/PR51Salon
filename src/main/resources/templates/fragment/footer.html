@@ -1,0 +1,76 @@
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<div th:fragment="footer">
+  <head>
+    <style>
+      footer {
+        background-color: #333;
+        color: #fff;
+        padding: 20px;
+        text-align: center;
+      }
+
+      .footer-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .contact-info,
+      .social-media {
+        flex: 1;
+        text-align: left;
+      }
+
+      .phone-number {
+        font-weight: bold;
+      }
+
+      .social-media ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+      }
+
+      .social-media ul li {
+        width: 30px;
+        height: 30px;
+        overflow: hidden;
+      }
+
+      .social-media ul li img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+
+      .footer-logo img {
+        width: 100px;
+        height: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="footer-container">
+      <div class="contact-info">
+        <h4>Liên Hệ</h4>
+        <p>Số Điện Thoại: <span class="phone-number">0123-456-789</span></p>
+        <p>Địa Chỉ: 123 Đường ABC, Thành Phố XYZ</p>
+      </div>
+      <div class="social-media">
+        <h4>Kết Nối</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/" target="_blank"><img src="/path-to-facebook-icon.png" alt="Facebook"></a></li>
+          <li><a href="https://www.instagram.com/" target="_blank"><img src="/path-to-instagram-icon.png" alt="Instagram"></a></li>
+          <li><a href="https://www.youtube.com/" target="_blank"><img src="/path-to-youtube-icon.png" alt="YouTube"></a></li>
+          <li><a href="https://twitter.com/" target="_blank"><img src="/path-to-twitter-icon.png" alt="Twitter"></a></li>
+        </ul>
+      </div>
+    </div>
+    <p>&copy; 2023 Hair Salon. All rights reserved.</p>
+  </footer>
+  </body>
+</div>
+</html>
