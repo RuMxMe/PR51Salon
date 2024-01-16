@@ -8,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.List;
 
@@ -19,6 +20,7 @@ public class ServiceItemController {
     @Autowired
     private ServiceItemRepository serviceItemRepository;
 
+    //    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping
     public String getAllServiceItems(Model model) {
         List<ServiceItem> serviceItems = serviceItemRepository.findAll();
@@ -26,40 +28,27 @@ public class ServiceItemController {
         return "/services/service_item";
     }
 
-    //    @GetMapping("/{id}")
-//    public String getServiceItemById(@PathVariable Long id, Model model) {
-//        Optional<ServiceItem> serviceItem = serviceItemRepository.findById(id);
-//        serviceItem.ifPresent(item -> model.addAttribute("serviceItem", item));
-//        return "/services/serviceItemDetails";
-//    }
-//
-//    //    @PreAuthorize("hasRole('ADMIN')")
-//    @PostMapping
-//    public String createServiceItem(@ModelAttribute ServiceItem serviceItem) {
-//        serviceItemRepository.save(serviceItem);
-//        return "redirect:/service-item";
-//    }
-//
-//    //    @PreAuthorize("hasRole('ADMIN')")
+    //    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/{id}/edit")
     public String editServiceItemForm(@PathVariable Long id, Model model) {
-        ServiceItem serviceItem = serviceItemRepository.findById(id)
-                .orElseThrow(() -> new CustomResourceNotFoundException("Service item not found"));
-        model.addAttribute("serviceItem", serviceItem);
-        return "/services/edit_service_item";
+        ServiceItem serviceitem = serviceItemRepository.findById(id)
+                .orElseThrow(() -> new CustomResourceNotFoundException("Không tìm thấy dịch vụ"));
+        model.addAttribute("serviceitem", serviceitem);
+        return "services/edit_service_item";
     }
 
+    //    @PreAuthorize("hasRole('ADMIN')")
+    @PostMapping("/{id}/edit")
+    public String updateServiceItem(@PathVariable Long id, @ModelAttribute ServiceItem serviceItem, RedirectAttributes redirectAttributes) {
+        if (!serviceItemRepository.existsById(id)) {
+            throw new CustomResourceNotFoundException("Không tìm thấy dịch vụ");
+        }
 
-    @PostMapping("/{id}")
-    public String updateServiceItem(@PathVariable Long id, @ModelAttribute ServiceItem serviceItem) {
-        serviceItemRepository.save(serviceItem);
-        return "redirect:/service_items";
+        ServiceItem ServiceItem = serviceItemRepository.findById(id).orElseThrow();
+        ServiceItem.setServiceName(serviceItem.getServiceName());
+        ServiceItem.setServiceImage(serviceItem.getServiceImage());
+
+        serviceItemRepository.save(ServiceItem);
+        return "redirect:/service-item";
     }
-//
-//    //    @PreAuthorize("hasRole('ADMIN')")
-//    @DeleteMapping("/{id}")
-//    public String deleteServiceItem(@PathVariable Long id) {
-//        serviceItemRepository.deleteById(id);
-//        return "redirect:/service-item";
-//    }
 }

@@ -2,22 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Edit Service Item</title>
+    <title>Chỉnh sửa dịch vụ</title>
 </head>
 <body>
-<h2>Edit Service Item</h2>
+<h2>Chỉnh sửa dịch vụ</h2>
 
-<form th:action="@{/serviceItems/{id}(id=${serviceItem.id})}" th:object="${serviceItem}" method="post">
-    <label>Name:</label>
+<form th:href="@{/service-item/{id}/edit(id=${serviceitem.id})}" th:object="${serviceitem}" method="post">
+    <label>ID:</label>
+    <input type="text" th:field="*{id}" readonly/>
+
+    <label>Tên:</label>
     <input type="text" th:field="*{serviceName}" required/>
 
-    <label>Image:</label>
+    <label>Hình ảnh:</label>
     <input type="text" th:field="*{serviceImage}" required/>
 
-    <button type="submit">Save Changes</button>
+    <button type="submit">Lưu thay đổi</button>
+
 </form>
 
-<br>
-<a th:href="@{/serviceItems}">Back to Service Items</a>
+
+<a th:href="@{/service-item}">Quay lại</a>
 </body>
 </html>

@@ -7,7 +7,7 @@
 
 <h1>Gán vai trò</h1>
 
-<form action="/role/assign_role" method="post">
+<form th:action="@{/assign_role}" method="post">
     <div class="form-group">
         <label for="userId">ID người dùng</label>
         <input type="text" class="form-control" id="userId" name="userId"/>
@@ -22,6 +22,9 @@
     <button type="submit" class="btn btn-primary">Gán</button>
 </form>
 
+<div th:if="${success}" class="alert alert-success">
+    <p th:text="${successMessage}"/>
+</div>
 <div th:if="${error}" class="alert alert-danger">
     <p th:text="${error}"></p>
 </div>

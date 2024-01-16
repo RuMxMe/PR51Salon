@@ -17,6 +17,15 @@ public class ServiceItem {
     @Column(name = "service_image")
     private String serviceImage;
 
+    public ServiceItem() {
+    }
+
+    public ServiceItem(Long id, String serviceName, String serviceImage) {
+        this.id = id;
+        this.serviceName = serviceName;
+        this.serviceImage = serviceImage;
+    }
+
     public Long getId() {
         return id;
     }

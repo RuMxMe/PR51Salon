@@ -19,6 +19,7 @@ public class RegisterController {
 
     @PostMapping("/process_register")
     public String processRegister(User user, Model model) {
+        user.setRole("USER");
         User existingEmailUser = userRepo.findByEmail(user.getEmail());
         User existingPhoneNumberUser = userRepo.findByPhoneNumber(user.getPhoneNumber());
 
@@ -40,7 +41,7 @@ public class RegisterController {
 
         return "/register/register_success";
     }
-	
+
 
     @GetMapping("/users")
     public String listUsers(Model model) {

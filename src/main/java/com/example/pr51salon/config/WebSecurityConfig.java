@@ -6,6 +6,7 @@ import com.example.pr51salon.service.CustomUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -54,9 +55,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-//                .antMatchers("/admin/**").hasRole("ADMIN")
-//                .antMatchers("/serviceItems/**").authenticated()
                 .antMatchers("/users").authenticated()
+//                .antMatchers("/service-item/**").hasRole("ADMIN")
+//                .antMatchers(HttpMethod.GET, "/service-item").permitAll()
                 .anyRequest().permitAll()
                 .and()
                 .formLogin()

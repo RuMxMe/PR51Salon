@@ -50,9 +50,9 @@
             <img th:src="${serviceItem.serviceImage}" alt="${serviceItem.serviceName}" style="width: 150px;">
         </td>
         <td>
-            <a th:href="@{/serviceItems/{id}(id=${serviceItem.id})}">Chi tiết</a>
-            <a th:href="@{/serviceItems/{id}/edit(id=${serviceItem.id})}">Chỉnh sửa</a>
-            <a th:href="@{/serviceItems/{id}/delete(id=${serviceItem.id})}">Xóa</a>
+            <a th:href="@{/service-item/{id}(id=${serviceItem.id})}">Chi tiết</a>
+            <a th:href="@{/service-item/{id}/edit(id=${serviceItem.id})}">Chỉnh sửa</a>
+            <a th:href="@{/service-item/{id}/delete(id=${serviceItem.id})}">Xóa</a>
         </td>
     </tr>
     </tbody>
