@@ -10,11 +10,12 @@
 </head>
 <body>
 <header th:include="/fragment/header :: header"></header>
-<h1 class="title-service">Cắt tóc</h1>
-<span class="title-service2">Trải nghiệm cắt tóc phong cách dành riêng cho phái mạnh, vừa tiện lợi vừa thư giãn tại đây</span>
+<h1 class="title-service">COMBO TRUYỀN THỐNG 100K</h1>
+<span class="title-service2">COMBO TRUYỀN THỐNG 100K
+Luôn tự hào là 1 trong những barber hàng đầu tại đà nẵng mang đến chất lượng dịch vụ chuyên nghiệp – không gian cao cấp nhưng với mức giá cực hợp lý 𝐜𝐚̉𝐦 𝐧𝐡𝐚̣̂𝐧 𝐭𝐡𝐮̛̉ 𝐝𝐢̣𝐜𝐡 𝐯𝐮̣ đ𝐚̂̀𝐲 đ𝐮̉ 𝐜𝐚́𝐜 𝐛𝐮̛𝐨̛́𝐜 𝐭𝐡𝐞𝐨 𝐪𝐮𝐲 𝐭𝐫𝐢̀𝐧𝐡 𝐛𝐚𝐫𝐛𝐞𝐫</span>
 <div class="flex-container">
     <a th:each="service : ${services}" href="" class="item">
-        <img th:src="${service.image}" alt="${service.nameItem}">
+        <img th:src="${service.image}" alt="${serviceitemdetail.imageitem}">
         <p th:text="${service.nameItem}"></p>
         <p th:text="${service.description}"></p>
         <p th:text="${service.price}"></p>

@@ -32,33 +32,21 @@
 </head>
 <body>
 <h2>Danh sách dịch vụ</h2>
-<h3>
-    <a th:href="@{/service-item/create}">Create New Product</a>
-</h3>
+
 <table>
     <thead>
     <tr>
         <th>ID</th>
         <th>Tên</th>
         <th>Hình ảnh</th>
-        <th>Hành động</th>
     </tr>
     </thead>
     <tbody>
-    <tr th:each="serviceItem : ${seviceitem}">
+    <tr th:each="serviceItem : ${serviceItem}">
         <td th:text="${serviceItem.id}"></td>
         <td th:text="${serviceItem.serviceName}"></td>
         <td>
             <img th:src="${serviceItem.serviceImage}" alt="${serviceItem.serviceName}" style="width: 150px;">
-        </td>
-        <td>
-            <a th:href="@{/service-item/{id}(id=${serviceItem.id})}">Chi tiết</a>
-            <a th:href="@{/service-item/{id}/edit(id=${serviceItem.id})}">Chỉnh sửa</a>
-            <a th:href="@{/service-item/delete/{id}(id=${serviceItem.id})}">Xóa</a>
-            <!--            <form th:action="@{/service-item/delete/{id}(id=${serviceItem.id})}">-->
-            <!--                <input type="hidden" name="_method" value="DELETE">-->
-            <!--                <button type="submit">Delete</button>-->
-            <!--            </form>-->
         </td>
     </tr>
     </tbody>

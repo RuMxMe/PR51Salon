@@ -2,14 +2,17 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #170b09;
 }
 
 header {
-    background-color: #f2f2f2;
+    background-color: #170b09;
     padding: 20px;
     text-align: center;
 }
-
+.main{
+    background-color: #170b09;
+}
 nav ul {
     list-style: none;
     padding: 0;
@@ -90,7 +93,7 @@ footer {
 /* flexbox */
 .flex-container {
     display: flex;
-    max-width: 100%; /* Giới hạn chiều rộng của flexbox */
+    max-width: 100%;
     justify-content: center;
     padding: 40px 0;
 }
@@ -106,9 +109,9 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%; /* Chỉnh chiều rộng các mục */
-    max-width: 200px; /* Giới hạn chiều rộng tối đa của mỗi mục */
-    margin: 0 10px; /* Khoảng cách giữa các mục */
+    width: 100%;
+    max-width: 200px;
+    margin: 0 10px;
 }
 
 .item img {

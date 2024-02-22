@@ -78,6 +78,19 @@
 
     </nav>
 </div>
+<div class="booking">
+    <nav class="navbar bg-body-tertiary">
+        <h4>Đặt lịch chỉ 30s <br><span>Thanh toán sau, hủy lịch được</span></h4>
+
+        <div class="container-fluid">
+            <form th:action="@{/booking-form}" class="d-flex" role="search" method="get">
+                <input class="form-control me-2" type="search" placeholder="Nhập SĐT" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Đặt lịch ngay</button>
+            </form>
+        </div>
+
+    </nav>
+</div>
 <h1 id="service">Dịch vụ tóc</h1>
 <div class="flex-container">
     <a href="/haircut" class="item">
@@ -96,45 +109,45 @@
 <h1 class="title-service">Spa & Relax</h1>
 <div class="flex-container">
     <a href="/massage" class="item">
-        <img src="/image/home/pc_home_spa_1.png" alt="Image 1">
+        <img th:src="${serviceitem[3].serviceImage}" alt="Image 1">
         <p>Gội massage Relax</p>
     </a>
     <a href="/change-hair-color" class="item">
-        <img src="/image/home/pc_home_spa_2.png" alt="Image 2">
+        <img th:src="${serviceitem[4].serviceImage}" alt="Image 2">
         <p>Chăm sóc da Spa</p>
     </a>
     <a href="/lay-ray-tai" class="item">
-        <img src="/image/home/pc_home_spa_3.png" alt="Image 3">
+        <img th:src="${serviceitem[5].serviceImage}" alt="Image 3">
         <p>Lấy rấy tai êm</p>
     </a>
 </div>
 <h1 class="title-service">Ưu Đãi</h1>
 <div class="flex-container">
-    <a href="link1.html" class="item">
-        <img src="" alt="Image 1">
+    <a href="/uu-dai-1" class="item">
+        <img th:src="${serviceitem[6].serviceImage}" alt="Image 1">
         <p>Combo Cắt-Tạo kiểu chỉ với 100k</p>
     </a>
     <a href="link2.html" class="item">
-        <img src="image2.jpg" alt="Image 2">
+        <img th:src="${serviceitem[7].serviceImage}" alt="Image 2">
         <p>Khuyến mãi 5 vị khách may mắn đầu tiên</p>
     </a>
     <a href="link3.html" class="item">
-        <img src="image3.jpg" alt="Image 3">
+        <img th:src="${serviceitem[8].serviceImage}" alt="Image 3">
         <p>Giảm giá với hóa đơn trên 500k</p>
     </a>
 </div>
 <h1 class="title-service">An Tâm & Tin tưởng</h1>
 <div class="flex-container">
     <a href="link1.html" class="item">
-        <img src="image1.jpg" alt="Image 1">
+        <img th:src="${serviceitem[9].serviceImage}" alt="Image 1">
         <p>Text for Item 1</p>
     </a>
     <a href="link2.html" class="item">
-        <img src="image2.jpg" alt="Image 2">
+        <img th:src="${serviceitem[10].serviceImage}" alt="Image 2">
         <p>Text for Item 2</p>
     </a>
     <a href="link3.html" class="item">
-        <img src="image3.jpg" alt="Image 3">
+        <img th:src="${serviceitem[11].serviceImage}" alt="Image 3">
         <p>Text for Item 3</p>
     </a>
 </div>

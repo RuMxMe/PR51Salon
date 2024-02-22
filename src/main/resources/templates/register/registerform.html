@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <title>Slide Navbar</title>
+    <link rel="stylesheet" type="text/css" href="slide navbar style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/registerform.css">
+</head>
+<body>
+<div class="main">
+    <input type="checkbox" id="chk" aria-hidden="true">
+
+    <div class="signup">
+        <form th:action="@{/process_register}" th:object="${user}"
+              method="post">
+            <label for="chk" aria-hidden="true">Sign up</label>
+
+            <input type="text" th:field="*{firstName}" required minlength="2" maxlength="20" name="txt"
+                   placeholder="First name">
+
+            <input type="text" th:field="*{lastName}" placeholder="Last Name" required minlength="2" maxlength="20">
+
+            <input type="email" th:field="*{email}" placeholder="Email" required="">
+
+            <p style="text-align: center; color: #fff;font-weight: bold" th:if="${emailError}"
+               class="text-danger"
+               th:text="${emailError}"></p>
+
+
+            <input type="number" th:field="*{phoneNumber}" placeholder="NumberPhone" required="">
+
+            <p style="text-align: center; color: #fff; font-weight: bold" th:if="${phoneError}"
+               class="text-danger"
+               th:text="${phoneError}"></p>
+
+            <input type="password" th:field="*{password}" class="form-control"
+                   required minlength="6" maxlength="10"/>
+
+            <button type="submit">Đăng kí</button>
+        </form>
+    </div>
+
+</div>
+</body>
+</html>

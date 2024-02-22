@@ -10,11 +10,11 @@
 </head>
 <body>
 <header th:include="/fragment/header :: header"></header>
-<h1 class="title-service">Cắt tóc</h1>
-<span class="title-service2">Trải nghiệm cắt tóc phong cách dành riêng cho phái mạnh, vừa tiện lợi vừa thư giãn tại đây</span>
+<h1 class="title-service">TIỆN ÍCH GIẢI TRÍ MIỄN PHÍ</h1>
+<span + LUÔN MIỄN PHÍ CÁC TIỆN ÍCH CÓ TẠI TIỆM + -đồ uống pha chế tùy chọn theo menu – giải trí bida</span>
 <div class="flex-container">
     <a th:each="service : ${services}" href="" class="item">
-        <img th:src="${service.image}" alt="${service.nameItem}">
+        <img th:src="${serviceitemdetail[0].imageitem}" alt="${serviceitemdetail.imageitem}">
         <p th:text="${service.nameItem}"></p>
         <p th:text="${service.description}"></p>
         <p th:text="${service.price}"></p>
